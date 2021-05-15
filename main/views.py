@@ -13,17 +13,19 @@ def rip(request):
     send_dict ={}
     send_list = [] 
     details = details.json()
-    data = details['data']['movies']
-    for i in data:
-        send_dict = {}
-        send_dict['id'] = i['id']
-        send_dict['title']=i['title']
-        send_dict['long_title'] = i['title_long']
-        send_dict['year'] = i['year']
-        send_dict['large_cover_image'] = i['large_cover_image']
-        send_list.append(send_dict)
+    try:
+        data = details['data']['movies']
+        for i in data:
+            send_dict = {}
+            send_dict['id'] = i['id']
+            send_dict['title']=i['title']
+            send_dict['long_title'] = i['title_long']
+            send_dict['year'] = i['year']
+            send_dict['large_cover_image'] = i['large_cover_image']
+            send_list.append(send_dict)
     #print(send_list)
-    return render(request,'searchResults.html',{'data':send_list,'name':movie_name})
-    
+        return render(request,'searchResults.html',{'data':send_list,'name':movie_name,'status':True})
+    except:
+        return render(request,'searchResults.html',{"status":False})
 
     

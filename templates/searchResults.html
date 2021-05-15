@@ -44,6 +44,7 @@
         <legend style="font-family: 'Nunito Sans', sans-serif;font-size: 25px; padding: 30px;"> 
             Your Searched for : {{name}}
         </legend>
+        {% if status %}
         <main class="grid">
           {% for i in data %}
           <article>
@@ -53,8 +54,10 @@
             </div>
           </article>
           {% endfor%}
-          
         </main>
+        {% else %}
+          <h3>No Result's Found</h3>
+        {% endif %}
       </div>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
