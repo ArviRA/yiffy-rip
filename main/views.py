@@ -11,17 +11,43 @@ def final_res(request):
     print(request.POST['movie_Id'])
     id = request.POST['movie_Id']
     #https://yts.mx/api/v2/movie_details.json?movie_id=10
-    movie_details = requests.get("https://yts.unblockit.onl/api/v2/movie_details.json?movie_id={}".format(id))
-    movie_details = movie_details.json()
-    movie_send = {}
-    movie_details = movie_details['data']['movie']
-    movie_send['name'] = movie_details['title']
-    movie_send['year'] = movie_details['year']
-    movie_send['large_cover'] = movie_details['large_cover_image']
-    movie_send['description_intro'] = movie_details['description_intro']
-    movie_send['rating'] = movie_details['rating']
-    movie_send['yt_trailer_code']  = movie_details['yt_trailer_code']
-    return JsonResponse(movie_send)
+    details = requests.get("https://yts.unblockit.onl/api/v2/movie_details.json?movie_id={}".format(id))
+    send_list = []
+    torrent_list = []
+    details = details.json()
+#print(details)
+    data = details['data']['movie']
+#print(data)
+    send_dict = {}
+    add = ""
+    send_dict['rating'] = data['rating']
+    send_dict['trailer'] = "https://www.youtube.com/watch?v="+data['yt_trailer_code']
+    send_dict['id'] = data['id']
+    send_dict['title']=data['title']
+    send_dict['long_title'] = data['title_long']
+    send_dict['year'] = data['year']
+    send_dict['large_cover_image'] = data['large_cover_image']
+    genre = data['genres']
+    for j in genre:
+        if add == "":
+            add  = add + j
+        else:
+            add  = add + ',' + j
+    send_dict['genre'] = add
+#print(i['torrents'])
+    torrent_files = data['torrents']
+    for link in torrent_files:
+        torrent = {}
+        torrent['url'] = link['url']
+        torrent['clarity'] = link['quality']
+        torrent['size'] = link['size']
+        torrent['type'] = link['type']
+        torrent_list.append(torrent)
+    send_dict['torrents'] = torrent_list
+    send_dict['story'] = data['description_full']
+    #print(data['description_full'])
+    send_list.append(send_dict)
+    return render(request,'details.html',{'data':send_list})
 
 
 
