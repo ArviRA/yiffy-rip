@@ -40,35 +40,34 @@
     </style>
 </head>
 <body>
-  <form id="form" action="send_movie_id" method="POST" style="display:none;">
-    {% csrf_token %}
+  <form id="form" style="display:none;">
     <input type="text" id="movie_Id" name="movie_Id">
   </form>
     <div class="container">
         <legend style="font-family: 'Nunito Sans', sans-serif;font-size: 25px; padding: 30px;"> 
-            Your Searched for : {{name}}
+            Your Searched for : Vacation
         </legend>
-        {% if status %}
         <main class="grid">
-          {% for i in data %}
-          <article onclick={sendId({{i.id}})}>
-            <img src = {{i.large_cover_image}}   alt="Sample photo">
-            <div class="text" >
-              <p>{{i.title}}</p>
+          <article onclick={sendId(12)}>
+            <img src="https://img.yts.mx/assets/images/movies/great_white_2021/medium-cover.jpg" alt="Sample photo">
+            <div class="text">
+              <h3>Seamlessly visualize quality</h3>
             </div>
-        
           </article>
-          {% endfor%}
+          <article>
+            <img src="https://img.yts.mx/assets/images/movies/great_white_2021/medium-cover.jpg" alt="Sample photo">
+            <div class="text">
+              <h3>Completely Synergize</h3>
+            </div>
+          </article>
+          
         </main>
-        {% else %}
-          <h3>No Result's Found</h3>
-        {% endif %}
       </div>
-</body>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 <script>
   function sendId(idVal){
     document.getElementById("movie_Id").value = idVal;
     document.getElementById("form").submit();
   }
-</script><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</script>
 </html>

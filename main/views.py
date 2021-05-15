@@ -1,10 +1,30 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 import requests
+from requests.sessions import RequestsCookieJar
 
 # Create your views here.
 def home(request):
     return render(request,'index.html')
+
+def final_res(request):
+    print(request.POST['movie_Id'])
+    id = request.POST['movie_Id']
+    #https://yts.mx/api/v2/movie_details.json?movie_id=10
+    movie_details = requests.get("https://yts.unblockit.onl/api/v2/movie_details.json?movie_id={}".format(id))
+    movie_details = movie_details.json()
+    movie_send = {}
+    movie_details = movie_details['data']['movie']
+    movie_send['name'] = movie_details['title']
+    movie_send['year'] = movie_details['year']
+    movie_send['large_cover'] = movie_details['large_cover_image']
+    movie_send['description_intro'] = movie_details['description_intro']
+    movie_send['rating'] = movie_details['rating']
+    movie_send['yt_trailer_code']  = movie_details['yt_trailer_code']
+    return JsonResponse(movie_send)
+
+
+
 
 
 def rip(request):
