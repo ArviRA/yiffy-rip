@@ -47,11 +47,12 @@
         {% if status %}
         <main class="grid">
           {% for i in data %}
-          <article>
+          <article onclick=console.log({{i.id}})>
             <img src = {{i.large_cover_image}}   alt="Sample photo">
-            <div class="text">
+            <div class="text" >
               <p>{{i.title}}</p>
             </div>
+        
           </article>
           {% endfor%}
         </main>
