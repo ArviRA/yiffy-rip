@@ -27,7 +27,7 @@ def final_res(request):
     send_dict['title']=data['title']
     send_dict['long_title'] = data['title_long']
     send_dict['year'] = data['year']
-    send_dict['large_cover_image'] = data['large_cover_image']
+    send_dict['large_cover_image'] = 'https://yst.mx/movies/poster/data'+data['slug']+'.jpg'
     genre = data['genres']
     for j in genre:
         if add == "":
@@ -68,7 +68,7 @@ def rip(request):
             send_dict['title']=i['title']
             send_dict['long_title'] = i['title_long']
             send_dict['year'] = i['year']
-            send_dict['large_cover_image'] = i['large_cover_image']
+            send_dict['large_cover_image'] = "https://yst.mx/movies/poster/data"+i['slug']+'.jpg'
             send_list.append(send_dict)
     #print(send_list)
         return render(request,'searchResults.html',{'data':send_list,'name':movie_name,'status':True})
