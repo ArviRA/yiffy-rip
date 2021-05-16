@@ -10,9 +10,69 @@
         background-image: url("/static/images/2000044.png");
      }
 
+     .glitch {
+      font-size: 3rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      position: relative;
+      text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+        0.025em 0.04em 0 #fffc00;
+      animation: glitch 725ms infinite;
+    }
+    
+    .glitch span {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    
+    .glitch span:first-child {
+      animation: glitch 500ms infinite;
+      clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+      transform: translate(-0.04em, -0.03em);
+      opacity: 0.75;
+    }
+    
+    .glitch span:last-child {
+      animation: glitch 375ms infinite;
+      clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+      transform: translate(0.04em, 0.03em);
+      opacity: 0.75;
+    }
+    
+    @keyframes glitch {
+      0% {
+        text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+          0.025em 0.04em 0 #fffc00;
+      }
+      15% {
+        text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+          0.025em 0.04em 0 #fffc00;
+      }
+      16% {
+        text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+          -0.05em -0.05em 0 #fffc00;
+      }
+      49% {
+        text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+          -0.05em -0.05em 0 #fffc00;
+      }
+      50% {
+        text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+          0 -0.04em 0 #fffc00;
+      }
+      99% {
+        text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+          0 -0.04em 0 #fffc00;
+      }
+      100% {
+        text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff,
+          -0.04em -0.025em 0 #fffc00;
+      }
+    }
         @font-face {
           font-family: 'LEMONMILK';
-          src: url('../static/fonts/LEMONMILK-Light.otf');
+          src: url('../static/fonts/LEMONMILK-Bold.otf');
         }
           .footer {
             
@@ -50,15 +110,22 @@
     </style>
 </head>
 <body>
+
   <form id="form" action="send_movie_id" method="POST" style="display:none;">
     {% csrf_token %}
     <input type="text" id="movie_Id" name="movie_Id">
   </form>
    <div class="footer">
     <div class="container">
+      <span style="position: absolute;right: 10;top: 10px; color:white;cursor: pointer;">
+        <a href="/" style="color: white;text-decoration: none; font-family:LEMONMILK">&#x1F3E0 Search Again</a> 
+       </span>
         <legend style="font-family:LEMONMILK;font-size: 25px; padding: 30px;"> 
-            Your Searched for : {{name}}
+            Your Searched for : <span class="glitch"><span aria-hidden="true">{{name}}</span>
+            {{name}}
+            <span aria-hidden="true">{{name}}</span></span>
         </legend>
+        
         {% if status %}
         <main class="grid">
           {% for i in data %}
@@ -72,7 +139,7 @@
           {% endfor%}
         </main>
         {% else %}
-          <h3>No Result's Found</h3>
+          <h3 class="footer">No Result's Found</h3>
         {% endif %}
       </div>
       </div>

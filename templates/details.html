@@ -12,6 +12,19 @@
         background-image: url("/static/images/2000044.png");
      
     }
+    @font-face {
+      font-family: 'LEMONMILK';
+      src: url("/static/fonts/LEMONMILK-Bold.otf");
+    }
+    @font-face {
+      font-family: 'roboto';
+      src: url("/static/fonts/Roboto-BlackItalic.ttf");
+    }
+      .footer {
+        
+        font-family: roboto;
+       
+      }
 
     .grid {
         display: flex;
@@ -72,37 +85,42 @@
     }
 </style>
 <body>
+  <div class="footer">
+  <span style="position: absolute;right: 10;top: 10px; color:white;cursor: pointer; ">
+    <a href="/" style="color: white;text-decoration: none; font-family:LEMONMILK">&#x1F3E0 Search Again</a> 
+   </span>
+   </div>
     <div class="container" style="position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);">
+    transform: translate(-50%, -50%); font-family:'roboto';">
         
         <main class="grid">
           <article  style="width: 450px;">
             <div class="text">
-                <span style="font-family: 'Nunito Sans', sans-serif;font-size: 25px;font-weight: 800;"> 
+                <span style="font-size: 25px;font-weight: 800; font-family:'roboto';"> 
                     {{data.0.title}}
-                    <p style="font-family: 'Nunito Sans', sans-serif;font-size: 15px;padding-top:-20px;font-weight: 500;"> 
+                    <p style="font-size: 15px;padding-top:-20px;font-weight: 500; font-family:'roboto';"> 
                         {{data.0.year}}
                     </p>
                 </span>
                 
-                <span style="font-family: 'Nunito Sans', sans-serif; font-weight: 600;">Genre &#127916 :</span> 
+                <span style=" font-weight: 600; font-family:'roboto';">Genre &#127916 :</span> 
                 <span class="genre">
-                    {{data.0.genre}}
+                <span style="font-family: 'roboto';">{{data.0.genre}} </span>
                 </span> 
-              <p>
+              <p style="font-family: 'roboto';">
                 {{data.0.story}}
               </p>
               <div style="margin-left:5px; padding:5; background-color: #ffd700;border-radius: 10px;width: 190px;">
-                <a href={{data.0.trailer}} style="text-decoration: none; color: rgb(68, 65, 65);">Click to watch Trailer &#128250</a>
+                <a href={{data.0.trailer}} style="text-decoration: none;  font-family:'roboto';color: rgb(68, 65, 65);">Click to watch Trailer &#128250</a>
               </div>
               
               <br>
               {% for i in data.0.torrents %} 
               <button>
               
-             <a href={{i.url}} style="text-decoration: none;color: #f3fafc;">&#9875 {{i.clarity}} {{i.type}} {{i.size}}</a>
+             <a href={{i.url}} style="text-decoration: none; font-family:'roboto';color: #f3fafc;">&#9875 {{i.clarity}} {{i.type}} {{i.size}}</a>
               </button>
               {% endfor %}
               
@@ -111,7 +129,7 @@
           <article>
             <img src={{data.0.large_cover_image}} width="250" height="400"  alt="Sample photo">
             <br>
-            <span style="font-family: 'Nunito Sans', sans-serif; font-weight: 600; width: 300px;">Rating &#128169 :</span> 
+            <span style=" font-weight: 600; width: 300px;">Rating &#128169 :</span> 
                 <span class="genre">
                     {{data.0.rating}}
                 </span> 
