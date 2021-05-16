@@ -12,6 +12,7 @@ def final_res(request):
     id = request.POST['movie_Id']
     #https://yts.mx/api/v2/movie_details.json?movie_id=10
     details = requests.get("https://yts.unblockit.onl/api/v2/movie_details.json?movie_id={}".format(id))
+    print(details)
     send_list = []
     torrent_list = []
     details = details.json()
@@ -55,7 +56,7 @@ def final_res(request):
 
 def rip(request):
     movie_name = request.POST['movie_name']
-    details  = requests.get("https://yts.unblockit.onl/api/v2/list_movies.json?query_term={}".format(movie_name))
+    details  = requests.get("https://yts.mx/api/v2/list_movies.json?quality={}".format(movie_name))
     send_dict ={}
     send_list = [] 
     details = details.json()
