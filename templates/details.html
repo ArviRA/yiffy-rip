@@ -1,14 +1,16 @@
 <html>
   <head>
+    <meta name="viewport" content="width=1024">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="Arvi">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   </head>
   <style>
     body {
-        padding: 40px 0;
-        background-color:#F7D328;
+      
+        background-image: url("/static/images/2000044.png");
+     
     }
 
     .grid {
@@ -27,7 +29,7 @@
         top: 10px;
         width: 200px;
     }
-
+      
     .grid > article img {
         flex-grow: 4;
         border-radius: 12px;
@@ -70,7 +72,10 @@
     }
 </style>
 <body>
-    <div class="container">
+    <div class="container" style="position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);">
         
         <main class="grid">
           <article  style="width: 450px;">
@@ -114,5 +119,6 @@
           
         </main>
       </div>
+      
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

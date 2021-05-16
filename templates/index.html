@@ -1,14 +1,15 @@
 {% load static %}
 <html>
   <head>
+    <meta name="viewport" content="width=1024">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="colorlib.com">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,800" rel="stylesheet" />
-    <link href="{% static 'css/main.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/waterEffect.css'%}" rel="stylesheet" />
+    <link href="/static/css/main.css" rel="stylesheet" />
+    <link href="/static/css/waterEffect.css" rel="stylesheet" />
     <style>
+      
         input:focus, textarea:focus, select:focus{
         outline: none;
         }
@@ -35,6 +36,25 @@
         top: 5px;
         cursor: pointer;
         }
+
+        @font-face {
+          font-family: 'LEMONMILK';
+          src: url('../static/fonts/LEMONMILK-Light.otf');
+        }
+        .search{
+          font-family: LEMONMILK;
+        }
+          .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            font-family: LEMONMILK;
+            background-color: #FBBA00;
+            color: white;
+            text-align: center;
+          }
+        
     </style>
   </head>
   <body>
@@ -54,9 +74,12 @@
             </div>
             {% csrf_token %}
             <legend style="right:-10px">Your movie is just 3 clicks away</legend>
-                <div class="container" style="border: 0;width:100%;margin-left: 50;">
+                <div class="search" style=" border: 0;width:100%;margin-left: 50;">
+                
                     <input type="text" name='movie_name' placeholder="Search something">
                     <button type="submit">&#128270</button>
+                  
+
                 </div>
           
         </div>
@@ -71,5 +94,9 @@
       });
 
     </script>
+    <div class="footer">
+      <p>Created by 
+      <a href="https://github.com/ArviRA" style="text-decoration: none; color: #36827F;">ArviRA</a><a href="https://github.com/Shakileash5" style="text-decoration: none; color: #36827F;"> Shakileash5</a></p>
+    </div>
   </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
