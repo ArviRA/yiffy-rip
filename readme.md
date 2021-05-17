@@ -33,7 +33,7 @@ What makes our website standout!
 
 
 # Prerequisites
-Make sure you have knowledge about Djnago. Follow the [official documentation](https://www.djangoproject.com/start/).
+Make sure you have knowledge about Django. Follow the [official documentation](https://www.djangoproject.com/start/).
 * django
 
   ```sh
