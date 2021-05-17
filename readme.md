@@ -28,6 +28,9 @@ What makes our website standout!
 
 </div>
 
+# UI 🔗
+ [Shakileash C](https://github.com/Shakileash5)
+
 # WEBSITE LINK 🔗
  ## [Yiffysimplified](https://yiffy-rip.herokuapp.com/)
 
