@@ -72,7 +72,7 @@ def rip(request):
                 send_dict['title']=i['title']
                 send_dict['long_title'] = i['title_long']
                 send_dict['year'] = i['year']
-                send_dict['large_cover_image'] = 'https://yts.unblockit.onl/imgp/assets/images/movies/'+data['slug'].replace('-','_')+'/large-cover.jpg'
+                #send_dict['large_cover_image'] = 'https://yts.unblockit.onl/imgp/assets/images/movies/'+data['slug'].replace('-','_')+'/large-cover.jpg'
                 send_list.append(send_dict)
         #print(send_list)
             return render(request,'searchResults.html',{'data':send_list,'name':movie_name,'status':True})
