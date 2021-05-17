@@ -12,7 +12,7 @@ def final_res(request):
         print(request.POST['movie_Id'])
         id = request.POST['movie_Id']
         #https://yts.mx/api/v2/movie_details.json?movie_id=10
-        details = requests.get("https://yts.unblockit.onl/api/v2/movie_details.json?movie_id={}".format(id))
+        details = requests.get("https://yts.unblockninja.com/api/v2/movie_details.json?movie_id={}".format(id))
         print(details)
         send_list = []
         torrent_list = []
