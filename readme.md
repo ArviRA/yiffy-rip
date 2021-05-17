@@ -34,7 +34,7 @@ What makes our website standout!
 
 # Prerequisites
 Make sure you have knowledge about Djnago. Follow the [official documentation](https://www.djangoproject.com/start/).
-* flask
+* django
 
   ```sh
   pip install django
