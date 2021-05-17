@@ -7,10 +7,10 @@
 </div>
 
 # Yiffysimplified 📱
-A website for downloading all your favourite movies for free with any ads or pop-ups
+A website for downloading all your favourite movies for free without any ads or pop-ups
 
 # Features 📋
-What makes our app standout!
+What makes our website standout!
 
 * No Advertisements 🙅
 * No vpn 🌍
@@ -21,7 +21,9 @@ What makes our app standout!
 
 # App Design
 <div style="width: 100%;">
-        <img src="https://raw.githubusercontent.com/ArviRA/ANIME_STREAM/master/scrn_shot/all_combined.png" width="100%">
+        <img src="https://raw.githubusercontent.com/ArviRA/yiffy-rip/master/scrn_shots/1.PNG" width="100%">
+        <img src="https://raw.githubusercontent.com/ArviRA/yiffy-rip/master/scrn_shots/2.PNG" width="100%">
+        <img src="https://raw.githubusercontent.com/ArviRA/yiffy-rip/master/scrn_shots/3.PNG" width="100%">
     
 
 </div>
