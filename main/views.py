@@ -40,7 +40,7 @@ def final_res(request):
         torrent_files = data['torrents']
         for link in torrent_files:
             torrent = {}
-            link['url'] = "magnet:?xt="+link['hash']
+            link['url'] = "magnet:?xt=utn:btih:"+link['hash']
             torrent['url'] = link['url']
             torrent['clarity'] = link['quality']
             torrent['size'] = link['size']
