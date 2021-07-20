@@ -59,6 +59,7 @@ def final_res(request):
 
 def rip(request):
     if request.method == 'POST':
+        print("\n\ninside post\n\n")
         movie_name = request.POST['movie_name']
         details  = requests.get("https://yts.unblockninja.com/api/v2/list_movies.json?query_term={}".format(movie_name))
         send_dict ={}
