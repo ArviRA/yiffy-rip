@@ -28,7 +28,7 @@ def final_res(request):
         send_dict['title']=data['title']
         send_dict['long_title'] = data['title_long']
         send_dict['year'] = data['year']
-        send_dict['large_cover_image'] = 'https://yts.unblockit.onl/imgp/assets/images/movies/'+data["slug"].replace('-','_')+'/large-cover.jpg'
+        send_dict['large_cover_image'] = 'https://yts.unblockninja.com/s__img/assets/images/movies/'+data["slug"].replace('-','_')+'/large-cover.jpg'
         genre = data['genres']
         for j in genre:
             if add == "":
