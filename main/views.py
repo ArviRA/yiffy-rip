@@ -75,7 +75,7 @@ def rip(request):
                 send_dict['long_title'] = i['title_long']
                 send_dict['year'] = i['year']
                 #print(i['slug'])
-                send_dict['large_cover_image'] = "https://yts.unblockninja.com/s__img/assets/images/movies/{}/large-cover.jpg".format(i['slug'].replace("-","_"))
+                send_dict['large_cover_image'] = "https://yts.unblockninja.com/s__img/assets/images/movies/{}/medium-cover.jpg".format(i['slug'].replace("-","_"))
                 print(send_dict["large_cover_image"],end="\n")
                 send_list.append(send_dict)
         #print(send_list)
