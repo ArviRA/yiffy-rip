@@ -40,7 +40,7 @@ def final_res(request):
         torrent_files = data['torrents']
         for link in torrent_files:
             torrent = {}
-            link['url'] = link['url'].replace('yts.mx','yts.unblockit.onl')
+            #link['url'] = link['url'].replace('yts.mx','yts.unblockit.onl')
             torrent['url'] = link['url']
             torrent['clarity'] = link['quality']
             torrent['size'] = link['size']
