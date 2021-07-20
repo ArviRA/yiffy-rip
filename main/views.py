@@ -12,7 +12,7 @@ def final_res(request):
         print(request.POST['movie_Id'])
         id = request.POST['movie_Id']
         #https://yts.mx/api/v2/movie_details.json?movie_id=10
-        details = requests.get("https://yts.unblockninja.com/api/v2/movie_details.json?movie_id={}".format(id))
+        details = requests.get("https://yts.mx/api/v2/movie_details.json?movie_id={}".format(id))
         print(details)
         send_list = []
         torrent_list = []
@@ -75,7 +75,7 @@ def rip(request):
                 send_dict['long_title'] = i['title_long']
                 send_dict['year'] = i['year']
                 #print(i['slug'])
-                send_dict['large_cover_image'] = "https://yts.unblockit.onl/imgp/assets/images/movies/{}/large-cover.jpg".format(i['slug'].replace("-","_"))
+                send_dict['large_cover_image'] = "https://yts.mx/assets/images/movies/{}/large-cover.jpg".format(i['slug'].replace("-","_"))
                 send_list.append(send_dict)
         #print(send_list)
             return render(request,'searchResults.html',{'data':send_list,'name':movie_name,'status':True})
