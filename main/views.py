@@ -62,7 +62,8 @@ def rip(request):
         movie_name = request.POST['movie_name']
         details  = requests.get("https://yts.unblockninja.com/api/v2/list_movies.json?query_term={}".format(movie_name))
         send_dict ={}
-        send_list = [] 
+        send_list = []
+        print("details",details)
         details = details.json()
         try:
             data = details['data']['movies']
